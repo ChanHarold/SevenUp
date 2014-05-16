@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SevenUp.Business
 {
+    //要拦截错误的方法必须是 virtual的
     public class DemoService
     {
         public virtual string Hello(string name)
