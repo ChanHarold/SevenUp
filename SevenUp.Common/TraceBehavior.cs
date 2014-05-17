@@ -24,11 +24,9 @@ namespace SevenUp.Common
             {
                 StringBuilder outStr = new StringBuilder();
                 outStr.Append(string.Format("Method:{0}.{1}(", getTargetName(input.Target.ToString()), input.MethodBase.Name));
-                foreach (var inArg in input.Inputs)
-                {
-                    outStr.Append(inArg.ToString() + ",");
-                }
+                outStr.Append(string.Join(",", input.Inputs.Cast<object>()));
                 outStr.AppendLine(")");
+
                 log4net.LogManager.GetLogger("ServiceTrace").Error(outStr.ToString(), methodReturn.Exception);
             }
 
